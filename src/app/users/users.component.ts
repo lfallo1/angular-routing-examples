@@ -26,6 +26,6 @@ export class UsersComponent {
   ];
 
   selectUser(user: {id: number, name: string}) {
-    this.router.navigate([`/users/${user.id}/${user.name}`]);
+    this.router.navigate([`/users/${user.id}/${user.name}`], { queryParams: { page: 4 } });
   }
 }

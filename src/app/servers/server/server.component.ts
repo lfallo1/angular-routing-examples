@@ -10,11 +10,22 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ServerComponent implements OnInit {
   server: {id: number, name: string, status: string};
+  allowEdit: boolean = false;
 
-  constructor(private serversService: ServersService, private router: ActivatedRoute) { }
+  constructor(private serversService: ServersService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.server = this.serversService.getServer(Number(this.router.snapshot.params.id));
+
+    //initialize variables from path vars, and also subscribe to be notified of changes
+    this.route.params.subscribe(() =>{
+      this.server = this.serversService.getServer(Number(this.route.snapshot.params.id));
+    });
+
+    this.route.queryParams.subscribe(() =>{
+      this.allowEdit = this.route.snapshot.queryParams.allowEdit && JSON.parse(this.route.snapshot.queryParams.allowEdit.toLowerCase());
+    });
+
+    console.log(`ROUTE FRAGMENT ${this.route.snapshot.fragment}`);
   }
 
 }

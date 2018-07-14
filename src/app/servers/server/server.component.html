@@ -1,5 +1,9 @@
 <h5>{{ server.name }}</h5>
 <p>Server status is {{ server.status }}</p>
 
-<!-- back one 'directory'... i.e., if on /path1/path2, then this will navigate to /path1 -->
-<a routerLink="../">Back</a>
+<div class="btn-group">
+  <a *ngIf="allowEdit" class="btn btn-primary" [routerLink]="['/servers', server.id, 'edit']">Edit</a>
+
+  <!-- back one 'directory'... i.e., if on /path1/path2, then this will navigate to /path1 -->
+  <a class="btn btn-danger" routerLink="../">Back</a>
+</div>

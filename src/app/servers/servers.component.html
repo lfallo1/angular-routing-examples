@@ -3,12 +3,17 @@
     <div class="list-group">
       <a
         [routerLink]="['/servers',server.id]"
+        [queryParams]="{allowEdit : true}"
+        fragment="loading"
         class="list-group-item"
         *ngFor="let server of servers">
         {{ server.name }}
       </a>
     </div>
   </div>
-  <button class="btn btn-primary" (click)="onReload()">Reload</button>
+  <div class="col-xs-12 col-sm-4">
+    <button class="btn btn-primary" (click)="onReload()">Reload</button>
+    <router-outlet></router-outlet>
+  </div>
 </div>
 

@@ -18,7 +18,7 @@ export class UserComponent implements OnInit {
     //   name: this.route.snapshot.params.username
     // }
 
-    //FWIW, returns an observable
+    //FWIW, returns an observable - subscribing to changes useful if route vals can change, but the component does not
     this.route.params.subscribe(() =>{
       this.user = {
         id: this.route.snapshot.params.userId,
