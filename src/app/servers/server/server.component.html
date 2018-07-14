@@ -2,7 +2,7 @@
 <p>Server status is {{ server.status }}</p>
 
 <div class="btn-group">
-  <a *ngIf="allowEdit" class="btn btn-primary" [routerLink]="['/servers', server.id, 'edit']">Edit</a>
+  <a class="btn btn-primary" (click)="editServer()">Edit</a>
 
   <!-- back one 'directory'... i.e., if on /path1/path2, then this will navigate to /path1 -->
   <a class="btn btn-danger" routerLink="../">Back</a>
