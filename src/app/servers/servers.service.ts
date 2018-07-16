@@ -1,5 +1,11 @@
+import {Injectable} from '@angular/core';
+import {Server} from './config/server.model';
+
+@Injectable({
+  providedIn: 'root'
+})
 export class ServersService {
-  private servers = [
+  private servers: Server[] = [
     {
       id: 1,
       name: 'Productionserver',
@@ -17,11 +23,11 @@ export class ServersService {
     }
   ];
 
-  getServers() {
+  getServers(): Server[] {
     return this.servers;
   }
 
-  getServer(id: number) {
+  getServer(id: number): Server {
     const server = this.servers.find(
       (s) => {
         return s.id === id;
@@ -31,7 +37,7 @@ export class ServersService {
   }
 
   updateServer(id: number, serverInfo: {name: string, status: string}) {
-    const server = this.servers.find(
+    const server: Server = this.servers.find(
       (s) => {
         return s.id === id;
       }

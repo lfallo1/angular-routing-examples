@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import {AppRoutingModule} from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
 import { ServersComponent } from './servers/servers.component';
@@ -12,6 +11,7 @@ import { EditServerComponent } from './servers/edit-server/edit-server.component
 import { ServerComponent } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+import {AppRoutingModule} from './_configuration/app-routing.module';
 
 
 
@@ -31,7 +31,7 @@ import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.co
     FormsModule,
     AppRoutingModule
   ],
-  providers: [ServersService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
